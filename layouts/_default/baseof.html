@@ -13,6 +13,13 @@
 <body>
   {{ partial "slideout.html" . }}
   <div class="container" id="mobile-panel">
+  <a href="{{ "/" | relURL }}" class="logo">
+    {{- if .Site.Params.logoTitle -}}
+      {{ .Site.Params.logoTitle }}
+    {{- else -}}
+      {{ .Site.Title }}
+    {{- end -}}
+  </a>
     <header id="header" class="header">
         {{ partial "header.html" . }}
     </header>
