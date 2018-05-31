@@ -13,11 +13,7 @@
 <body>
   {{ partial "slideout.html" . }}
   <a href="{{ "/" | relURL }}" class="logo">
-    {{- if .Site.Params.logoTitle -}}
-      {{ .Site.Params.logoTitle }}
-    {{- else -}}
-      {{ .Site.Title }}
-    {{- end -}}
+    Engineering Management Space
   </a>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
