@@ -4,7 +4,7 @@
 
 .header {
   @include clearfix; 
-  padding: $header-padding;
+  padding: 0;
 
   @import '_header/logo';
   @import '_header/menu';
