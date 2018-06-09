@@ -1,7 +1,11 @@
-{{- with $.Param "images" -}}
+{{- if isset $.Params "images" -}}
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="{{ index . 0 | absURL }}"/>
+  <meta name="twitter:image:src" content="{{ index .Params "images" 0 | absURL }}"/>
+{{ else if isset $.Params "small_images" -}}
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:image:src" content="{{ index .Params "small_images" 0 | absURL }}"/>
 {{ else -}}
+  <meta name="twitter:image:src" content="{{ "/img/banner.jpg" | absURL }}"/>
   <meta name="twitter:card" content="summary"/>
 {{- end -}}
 <meta name="twitter:title" content="{{ .Title }}"/>
