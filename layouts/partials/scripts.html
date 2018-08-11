@@ -27,6 +27,11 @@
 
 <!-- Analytics -->
 {{- if .Site.GoogleAnalytics -}}
+  <script type='text/javascript'>
+    if (window.location.hostname !== "engineering-management.space") {
+      window.doNotTrack = true;
+    }
+  </script>
   {{ template "_internal/google_analytics_async.html" . }}
 {{- end -}}
 
