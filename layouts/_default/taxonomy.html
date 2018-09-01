@@ -1,8 +1,9 @@
+
 {{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
 
 {{ define "content"}}
 {{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate") }}
-<section id="archive" class="archive">
+<section id="archive" class="archive" style="max-width:745px">
   {{ if not $paginator.HasPrev }}
     {{ if eq .Data.Plural "tags" }}
       <div class="archive-title tag">
@@ -15,17 +16,40 @@
     {{ end }}
   {{ end }}
 
-  {{ range $paginator.Pages }}
-    <div class="archive-post">
-      <span class="archive-post-time">
-        {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-      </span>
-      <span class="archive-post-title">
-        <a href="{{ .URL }}" class="archive-post-link">
-          {{ .Title }}
+  {{ if in .URL "interviews" }}
+    {{ range $paginator.Pages }}
+      <div class="archive-post" style="width:200px;float:left;height:290px">
+        <a href="{{ .URL }}">
+          <img src="{{ index .Params "small_images" 0 | absURL }}"
+               style="width:200px;margin-bottom:5px;"/>
         </a>
-      </span>
-    </div>
+        <span class="archive-post-title">
+          <a href="{{ .URL }}" class="archive-post-link">
+            {{ .Params.interviewee_name }}
+          </a><br/>
+          <a href="{{ .URL }}" class="archive-post-link" style="color:#8a8a8a">
+            {{ .Params.interviewee_role }}
+          </a><br/>
+          <a href="{{ .URL }}" class="archive-post-link" style="color:#8a8a8a">
+            {{ .Params.interviewee_company }}
+          </a>
+        </span>
+      </div>
+    {{end}}
+    <div style="clear:both" />
+  {{else}}
+    {{ range $paginator.Pages }}
+      <div class="archive-post">
+        <span class="archive-post-time">
+          {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+        </span>
+        <span class="archive-post-title">
+          <a href="{{ .URL }}" class="archive-post-link">
+            {{ .Title }}
+          </a>
+        </span>
+      </div>
+    {{end}}
   {{ end }}
 </section>
 <!-- pagination -->
