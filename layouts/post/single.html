@@ -39,8 +39,7 @@
     <!-- Copyright -->
     {{ partial "post/copyright.html" . }}
 
-    <!-- Reward -->
-    {{ partial "post/reward.html" . }}
+
 
     <footer class="post-footer">
       {{ with .Params.tags -}}
@@ -50,6 +49,8 @@
           {{ end }}
         </div>
       {{- end }}
+
+
 
       <!-- Post Pagination -->
       <nav class="post-nav">
@@ -70,4 +71,6 @@
       </nav>
     </footer>
   </article>
+    <!-- Related -->
+    {{ partial "related.html" . }}
 {{- end }}
