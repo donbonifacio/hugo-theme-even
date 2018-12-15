@@ -12,7 +12,7 @@
 <nav class="site-navbar" style="margin: 0 auto;width:800px">
   <ul id="menu" class="menu">
     {{ range .Site.Menus.main -}}
-      <li class="menu-item" style="display:inline-block; margin-right:20px;">
+      <li class="menu-item" style="display:inline-block;">
         <a class="menu-item-link" style="color: #8a8a8a;" href="{{ .URL | safeURL }}">{{ .Name }}</a>
       </li>
     {{- end }}
