@@ -12,10 +12,11 @@
 </head>
 <body>
   {{ partial "slideout.html" . }}
-  <a href="{{ "/" | relURL }}" class="logo"
-     style="background-color: #c05b4d;margin: 0 auto;display: block;color: white;width: 800px;padding-left: 20px;padding-bottom: 5px;">
-    Engineering Management Space
-  </a>
+  <div style="padding-top:5px;background-color: #c05b4d;margin: 0 auto;display: block;color: white;width: 800px;padding-left: 20px;padding-right:20px;;padding-bottom: 5px;">
+    <a href="{{ "/" | relURL }}" class="logo" style="color:white;">Engineering Management Space</a>
+    <a href="/site-tour" class="logo" style="margin-left:10px;float:right;color:white;text-decoration:underline">Site Tour</a>
+    <a href="{{ "/" | relURL }}" class="logo" style="margin-left:10px;float:right;color:white;text-decoration:underline">Home</a>
+  </div>
   <div class="container" id="mobile-panel">
     <header id="header" class="header" style="padding:0">
         {{ partial "header.html" . }}
