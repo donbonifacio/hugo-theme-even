@@ -47,6 +47,9 @@
           <a href="{{ .URL }}" class="archive-post-link">
             {{ .Title }}
           </a>
+          {{ if .Params.author }}
+          by <a href="{{ .Params.author_url }}" class="archive-post-link">{{ .Params.author }}</a>
+          {{end}}
         </span>
       </div>
     {{end}}
